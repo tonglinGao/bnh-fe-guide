@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 资源引入-meta -->
+	@@include('../../组件--资源引入--meta.html')
+	<title>tab-ctrl</title>
+	<!-- 资源引入-css -->
+	@@include('../../组件--资源引入--css.html')
+	<link href="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<!-- layerui -->
+	<link rel="stylesheet" href="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/css/layui.css" />
+	<!-- 资源引入-js -->
+	@@include('../../组件--资源引入--js.html')
+	<!-- jsapi部分 -->
+	<script type="text/javascript" src="/js/js-api.js"></script>
+	<!-- 自定义滚动条 -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+	<!-- layerui -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/layui.js"></script>
+</head>
+<body>
+	@@include('组件--头部--jsapi.html')
+
+	<!-- 主体内容 -->
+	<div class="wrapper_jsapi">
+		<!-- nav-jsapi -->
+		@@include('tab-ctrl--组件--导航--jsapi.html')
+		<!-- 主体内容包裹层 -->
+		<div class="wrapper_jsapi_folder">
+			<div class="opt_fun_wrapper">
+				<!-- 标题 -->
+				<div class="intro_tit">教务宝 tab-ctrl 组件详解</div>
+				<!-- 介绍文本 -->
+				<div class="intro_txt">
+					<p>该组件是教务宝项目<span class="jsapi_color_tip">最重要的组件</span>，实现的功能是点击左侧导航页面，会在该组件内实现以tab切换的形式展现，方便进行页面切换并实现记录用户的当前所有的已打开的页面，在初始化的时候一并加载。</p>
+				</div>
+				<!-- 位置 -->
+				<div class="description">
+					<span>位　置：</span>
+					<span class="jsapi_color_tip">src/js/page/page_main_tab_ctrl.js</span>
+				</div>
+				<!-- 图片 -->
+				<img src="/img/intro_img_jwb.jpg" alt="" class="intro_img" />
+
+				@@include('tab-ctrl--组件--属性方法--jsapi.html')
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		jQuery(function () {
+			
+			// jsapi 头部小导航选中
+			JsApi.header(1);
+
+			// jsapi 导航
+			JsApi.nav();
+
+			// 代码修饰器
+			// 方法说明骨架内部调用实例
+			layui.use('code', function(){ //加载code模块
+			 	layui.code({
+			 		about: false,
+			 		// encode: true
+			 	}); //引用code方法
+			});
+
+		});  //readyEnd
+
+	</script>
+</body>
+</html>

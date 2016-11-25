@@ -1,0 +1,76 @@
+// =========
+// ***组件--公用头部
+// =========
+
+body.pad-t-60{
+	padding-top: @header-height + 10;
+}
+
+.header_common{
+	width: 100%;
+	height: @header-height;
+	background: @header-jsapi-bgc-col;
+	position: fixed;
+	top: 0;
+	left: 0;
+	.header_l,.header_r{
+		height: 100%;
+	}
+	// 左部分
+	.header_l{
+		width: @nav-jsapi-width;
+		// background: red;
+		.fl();
+		.logo{
+			color: #fff;
+		}
+	}
+	// 中间部分
+	.header_c{
+		font-size: 16px;
+		color: #fff;
+		font-weight: bold;
+		text-align: center;
+		line-height: @header-height;
+		margin: 0 @header-height 0 @nav-jsapi-width;
+	}
+	// 右部分
+	.header_r{
+		width: @header-height;
+		.fr();
+		.bor-l();
+		cursor: pointer;
+		background: url("../img/header_icon_menu .png") no-repeat center center;
+		background-size: 35px 35px;
+		position: relative;
+		&:hover{
+			background-color: @header-jsapi-bgc-fu-col;
+			// 下拉菜单
+			.drop_menu{
+				display: block;
+			}
+		}
+		// 下拉菜单部分
+		.drop_menu{
+			width: 160px;
+			font-size: 14px;
+			line-height: 30px;
+			text-align: center;
+			background: @header-jsapi-bgc-col;
+			display: none;
+			padding: 10px 0;
+			position: absolute;
+			right: 0;
+			top: @header-height;
+			li{
+				a{
+					color: #fff;
+					display: block;
+					&:hover{
+						color: @header-jsapi-bgc-fu-col;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 资源引入-meta -->
+	@@include('../../组件--资源引入--meta.html')
+	<title>functions</title>
+	<!-- 资源引入-css -->
+	@@include('../../组件--资源引入--css.html')
+	<link href="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<!-- layerui -->
+	<link rel="stylesheet" href="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/css/layui.css" />
+	<!-- 资源引入-js -->
+	@@include('../../组件--资源引入--js.html')
+	<!-- jsapi部分 -->
+	<script type="text/javascript" src="/js/js-api.js"></script>
+	<!-- 自定义滚动条 -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+	<!-- layerui -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/layui.js"></script>
+	<!-- functions -->
+	<link href="http://cdn.baonahao.com.cn/jwb/css/style.css" rel="stylesheet" />
+	<script src="http://cdn.baonahao.com.cn/jwb/js/page/page-frame.min.js" type="text/javascript"></script>
+	<script src="http://cdn.baonahao.com.cn/jwb/js/page/page.min.js" type="text/javascript"></script>
+	<!-- 一些特殊样式 -->
+	<style>
+		/* checkbox--示例代码 */
+		.check_sty.on .con {
+			background: url(/img/day_sel_ok.png) no-repeat left center !important;
+		} 
+		.check_sty .con {
+			background: url(/img/day_sel_no.png) no-repeat left center !important;
+			margin: 0 10px 0 0;
+		} 
+	</style>
+</head>
+<body>
+	@@include('组件--头部--jsapi.html')
+
+	<!-- 主体内容 -->
+	<div class="wrapper_jsapi">
+		<!-- nav-jsapi -->
+		@@include('functions--组件--导航--jsapi.html')
+		<!-- 主体内容包裹层 -->
+		<div class="wrapper_jsapi_folder">
+			<div class="opt_fun_wrapper">
+				<!-- 标题 -->
+				<div class="intro_tit">教务宝 functions 常用函数</div>
+				<!-- 介绍文本 -->
+				<div class="intro_txt">
+					<p>教务宝自行封装的常用函数</p>
+				</div>
+				<!-- 图片 -->
+				<img src="/img/intro_img_function_1.jpg" alt="" class="intro_img" />
+
+				@@include('functions--组件--属性方法--jsapi.html')
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		jQuery(function () {
+			
+			// jsapi 头部小导航选中
+			JsApi.header(5);
+
+			// jsapi 导航
+			JsApi.nav();
+
+			// 代码修饰器
+			// 方法说明骨架内部调用实例
+			layui.use('code', function(){ //加载code模块
+			 	layui.code({
+			 		about: false,
+			 		encode: true
+			 	}); //引用code方法
+			});
+			
+			// functions示例
+			// ==formReset
+			formReset(".school_query.width_g", ".reset_sp.reset_sp_spe");
+
+			// ==loadingCreate
+			$("#loading_define .btn").click(function() {
+				loadingCreate("loading_box", 0);
+			});
+
+			// ==loadingDestroy
+			$("#loading_define2 .btn.cre").click(function() {
+				loadingCreate("loading_box2", 0);
+			});
+			$("#loading_define2 .btn.dis").click(function() {
+				loadingDestroy("loading_box2", 300);
+			});
+
+			// ==checkSelect
+			checkSelect(".check_sty.on_inp");
+
+			// ==radioSelect
+			radioSelect(".radio_sty.no_inp");
+
+			// ==checkSty
+			checkSty();
+
+			// ==radioSty
+			radioSty("group1", function(){
+				// alert("你点击了我！");
+			});
+
+
+
+		});  //readyEnd
+
+	</script>
+</body>
+</html>

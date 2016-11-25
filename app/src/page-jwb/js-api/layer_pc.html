@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 资源引入-meta -->
+	@@include('../../组件--资源引入--meta.html')
+	<title>layer_pc</title>
+	<!-- 资源引入-css -->
+	@@include('../../组件--资源引入--css.html')
+	<link href="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<!-- layerui -->
+	<link rel="stylesheet" href="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/css/layui.css" />
+	<!-- 资源引入-js -->
+	@@include('../../组件--资源引入--js.html')
+	<!-- jsapi部分 -->
+	<script type="text/javascript" src="/js/js-api.js"></script>
+	<!-- 自定义滚动条 -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+	<!-- layerui -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/layui.js"></script>
+	<!-- layer_pc -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/jquery-layer-2.2/layer.js" type="text/javascript"></script>
+	<script src="http://cdn.baonahao.com.cn/jwb/js/page/page-main.min.js" type="text/javascript"></script>
+</head>
+<body>
+	@@include('组件--头部--jsapi.html')
+
+	<!-- 主体内容 -->
+	<div class="wrapper_jsapi">
+		<!-- nav-jsapi -->
+		@@include('layer_pc--组件--导航--jsapi.html')
+		<!-- 主体内容包裹层 -->
+		<div class="wrapper_jsapi_folder">
+			<div class="opt_fun_wrapper">
+				<!-- 标题 -->
+				<div class="intro_tit">教务宝 layer_pc 组件详解</div>
+				<!-- 介绍文本 -->
+				<div class="intro_txt">
+					<p>该组件是教务宝项目<span class="jsapi_color_tip">根据UI高度自定义的各种弹窗集合</span>，实现的功能是实现各种弹窗（alert，confirm，iframe等）。该组件是在<span class="jsapi_color_tip">贤心出品的强大的layer组件</span>上面做的二次封装。该文档对二次封装常用的属性和方法做解释，建议先去layer官网查看全版的手册，以便更好的理解和使用该组件！<a href="http://layer.layui.com/" class="friend_link" target="_blank">layer官网</a></p>
+				</div>
+				<!-- 位置 -->
+				<div class="description">
+					<span>位　置：</span>
+					<span class="jsapi_color_tip">src/js/page/page_main_layer_pc.js</span>
+				</div>
+				<!-- 图片 -->
+				<img src="/img/intro_img_jwb_layerPc.jpg" alt="" class="intro_img" />
+
+				@@include('layer_pc--组件--属性方法--jsapi.html')
+			</div>
+		</div>
+	</div>
+	<!-- 在线调试器模板 -->
+	<div class="layer_test_box" id="layer_test_box">
+		<div class="layer_test_tit">
+			<a href="javascript:;" id="show_hide_btn">收起</a>
+			<p id="online_test">在线调试,内容可以修改哦</p>
+		</div>
+		<textarea name="" id="layer_test_area" class="layer_test_area">
+			layerPc.alert({
+			    title: "layerPC在线调试",
+			    content: "在里面写要显示的内容",
+			    btn: ["按钮的名称"],
+			    call: function(){
+			      alert("确定按钮的回调");
+			    }
+			});
+		</textarea>
+		<a href="javascript:;" id="go_test" class="go_test" onclick="eval($('#layer_test_area').val());">运行试试吧</a>
+	</div>
+	<script>
+
+		jQuery(function () {
+			
+			// jsapi 头部小导航选中
+			JsApi.header(2);
+
+			// jsapi 导航
+			JsApi.nav();
+
+			// 代码修饰器
+			// 方法说明骨架内部调用实例
+			layui.use('code', function(){ //加载code模块
+			 	layui.code({
+			 		about: false,
+			 		// encode: true
+			 	}); //引用code方法
+			});
+
+			// layer组件在线调试
+			JsApi.layerTestBox();
+
+			// layer全局配置
+			layer.config({
+			    extend: ['skin/jwb/style.css', 'skin/jwb_ask/style.css', 'extend/layer.ext.js'] //加载新皮肤，在设置皮肤的时候应用样式
+			});
+
+			// ==layer 内置方法演示
+			
+
+
+		});  //readyEnd
+
+	</script>
+</body>
+</html>

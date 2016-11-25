@@ -1,0 +1,1258 @@
+<!-- 内置方法-标题 -->
+<h1 class="opt_fun_tit">内置方法</h1>
+<div class="opt_fun_box">
+
+	<!-- 单条属性方法-方法无参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="getViewPortSize">getViewPortSize()</span>
+			<span class="des_deco">-</span>
+			<span class="des">获取浏览器窗口的宽和高</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参　数：无</dt>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：返回值有2个属性</dd>
+				<dd class="explain">1.width&emsp;浏览器包括滚动条滚动的距离总和宽度&emsp;类型：Number</dd>
+				<dd class="explain">2.height&emsp;浏览器包括滚动条滚动的距离总和高度&emsp;类型：Number</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			获取浏览器窗口的宽和高，<span class="jsapi_color_tip">宽度高度都包括浏览器向左或者向右滚动的距离</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [getViewPortSize 获取浏览器窗口的宽和高]
+		 * @return {[json]} [宽和高]
+		 */
+		function getViewPortSize(){
+		    var winWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		    var winHeight = document.documentElement.clientHeight || document.body.clientHeight;
+		    var scrollL = document.documentElement.scrollLeft || document.body.scrollLeft;
+		    var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+		    return {"width": winWidth + scrollL, "height":winHeight + scrollT};
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="trim">trim()</span>
+			<span class="des_deco">-</span>
+			<span class="des">字符串去掉 \n空格 的方法</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参　数：无</dt>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：返回处理过后的字符串</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			字符串去掉 \n空格 的方法
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		String.prototype.trim=function() {
+		    return this.replace(/(^\s*)|(\s*$)/g,'');
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="checkUqiString">checkUqiString(s)</span>
+			<span class="des_deco">-</span>
+			<span class="des">检查过滤特殊字符串</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参　数：一</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：需要处理的字符串&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：返回处理过后的字符串</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			检查过滤特殊字符串，具体过滤规则，请看如下代码
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [checkUqiString 检查过滤特殊字符串]
+		 * @param  {[string]} s [待处理的字符串]
+		 * @return {[string]}   [过滤后的字符串]
+		 */
+		function checkUqiString(s) {
+		    var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&;—|{}【】‘；：”“'\"。，、？%+_-]","i");
+		    var rs = "";
+		    s = s.replace(/(\\|\s)/g, "");
+		    s = s.substring(0, 100);
+		    for (var i = 0; i < s.length; i++) {
+		        rs = rs + s.substr(i, 1).replace(pattern, '');
+		    }
+		    return rs;
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="getIframe">getIframe(obj, bBoolen)</span>
+			<span class="des_deco">-</span>
+			<span class="des">获取指定id的iframe对象</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：要获取的目标iframe的id,无需带#号&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：Bollean</dd>
+				<dd>解　释：是否对参数一传递过来的值进行md5操作，传true表示不进行md5处理&emsp;默认：false</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：返回值有2个属性</dd>
+				<dd class="explain">1.win&emsp;目标iframe的window对象&emsp;类型：jQuery对象</dd>
+				<dd class="explain">2.doc&emsp;目标iframe的document对象&emsp;类型：jQuery对象</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			由于教务宝项目采用的是多iframe布局，这就难免涉及到<span class="jsapi_color_tip">主体窗口与iframe窗口或者多个iframe窗口之间的值的互相获取和操作</span>。该方法就是为了解决这个问题应运而生。
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_main_page_main.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [getIframe 获取指定的iframe对象]
+		 * @param  {[string]} obj [目标iframe对象的id]
+		 * @param  {[boolen]} obj [布尔值]
+		 * @return {[type]}     [description]
+		 */
+		function getIframe(obj, bBoolen){
+		    if(obj === "/Homes/home"){
+			      obj = "/Homes/home";
+		    }else if(bBoolen){
+			      obj = obj;
+		    }else{
+			      obj = $.md5(obj);
+		    }
+
+		    if(bBoolen){
+			      var oWin = $("#" + obj)[0].contentWindow;
+		    }else{
+			      var oWin = $("#" + "frame" + obj)[0].contentWindow;
+		    }
+			
+		    var oDoc =  $(oWin.document);
+		    return {win: oWin, doc: oDoc};
+
+		}
+		//调用实例
+		//==假设想获取id值为 frame1 的iframe对象
+		var oObj = getIframe("frame1", true); //id值为 frame 且不用带#号，true表示不对参数一进行MD5操作
+		//==假设 id值为 frame1 的iframe对象 里面有一个id值为 list 的ul标签
+		var oDocument = oObj.doc; //获取到iframe的document对象
+		var oList = oDocument.find("#list"); //借助于jQuery 获取 list DOM对象
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="weekNum">weekNum(obj)</span>
+			<span class="des_deco">-</span>
+			<span class="des">星期几转换成数字</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：需要被转换的字符串，如：星期一&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：返回对应的数字,比较简单直接去看实例代码吧</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			星期几转换成数字
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [weekNum 星期几转换成数字]
+		 * @param  {[string]} obj [星期一 ~ 星期日]
+		 * @return {[number]}     [0 ~ 6]
+		 */
+		function weekNum(obj){
+		    var iNum = null;
+		    switch(obj){
+		        case "星期日":
+		        iNum = 0;
+		        break;
+		        case "星期一":
+		        iNum = 1;
+		        break;
+		        case "星期二":
+		        iNum = 2;
+		        break;
+		        case "星期三":
+		        iNum = 3;
+		        break;
+		        case "星期四":
+		        iNum = 4;
+		        break;
+		        case "星期五":
+		        iNum = 5;
+		        break;
+		        case "星期六":
+		        iNum = 6;
+		        break;
+		        default:
+		    }
+		    return iNum;
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="weekStr">weekStr(obj)</span>
+			<span class="des_deco">-</span>
+			<span class="des">数字转换成星期几</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：需要被转换的数字，如：0&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：返回对应的星期字符串,比较简单直接去看实例代码吧</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			数字转换成星期几
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [weekStr 数字转换成星期几]
+		 * @param  {[number]} obj [0 ~ 6]
+		 * @return {[string]}     [星期一 ~ 星期日]
+		 */
+		function weekStr(obj){
+		    var sStr = null;
+		    switch(obj){
+		        case 0:
+		        sStr = "星期日";
+		        break;
+		        case 1:
+		        sStr = "星期一";
+		        break;
+		        case 2:
+		        sStr = "星期二";
+		        break;
+		        case 3:
+		        sStr = "星期三";
+		        break;
+		        case 4:
+		        sStr = "星期四";
+		        break;
+		        case 5:
+		        sStr = "星期五";
+		        break;
+		        case 6:
+		        sStr = "星期六";
+		        break;
+		        default:
+		    }
+		    return sStr;
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="getWeek">getWeek(time)</span>
+			<span class="des_deco">-</span>
+			<span class="des">获取某天是周几</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Date对象</dd>
+				<dd>解　释：一个确切的某天的date对象&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：返回对应的星期字符串,比较简单直接去看实例代码吧</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			获取某天是周几
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [getWeek 获取当前天是周几]
+		 * @param  {[date]} time [一个确切的date对象]
+		 * @return {[string]}      [周几]
+		 */
+		function getWeek(time){
+		    var iDay = time.getDay();
+		    var sWeek = null;
+		    switch(iDay){
+		        case 0:
+		        sWeek = "星期日";
+		        break;
+		        case 1:
+		        sWeek = "星期一";
+		        break;
+		        case 2:
+		        sWeek = "星期二";
+		        break;
+		        case 3:
+		        sWeek = "星期三";
+		        break;
+		        case 4:
+		        sWeek = "星期四";
+		        break;
+		        case 5:
+		        sWeek = "星期五";
+		        break;
+		        case 6:
+		        sWeek = "星期六";
+		        break;
+		        default:
+		    }
+		    return sWeek;
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="formReset">formReset(oPar, obj)</span>
+			<span class="des_deco">-</span>
+			<span class="des">form表单重置</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：表单集合大容器的id或者class,如：#form&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：发生事件的元素的id或者class,如：.reset_btn即重置按钮</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			form表单重置，将form里面包含的input：text重置为空，将select重置为第一项选中
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [formReset 表单重置]
+		 * @param  {[string]} oPar [表单集合大容器]
+		 * @param  {[string]} obj  [发生事件的元素]
+		 * @return {[null]}      [description]
+		 */
+		function formReset(oPar, obj){
+		    var oPar = $(obj).parents(oPar);
+		    var aInp = oPar.find(":text");
+		    var aSel = oPar.find("select");
+		    var _this = $(obj);
+
+		    _this.click(function() {
+		        aInp.val("");
+		        aSel.each(function() {
+		            $(this).find('option').eq(0).attr("selected",true);
+		        });
+		    });
+		}
+		</pre>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		//调用方法
+		formReset(".school_query.width_g", ".reset_sp.reset_sp_spe");
+		</pre>
+		<div class="school_query width_g over_spe clearfix pad_0">
+			<div class="form_top_ctrl">
+				<span class="school_name t_m">班级名称</span>
+				<input type="text" name="" id="" class="inp_txt in_class width_inp_form">
+			</div>
+			<div class="form_top_ctrl">
+				<span class="school_name handle_per t_m">教师信息</span>
+				<input type="text" name="" id="" class="inp_txt in_class width_inp_form">
+			</div>
+			<div class="form_top_ctrl">
+				<span class="school_name handle_per t_m">教室名称</span>
+				<select name="" id="" class="session_state sl_already">
+					<option value="">已结课1</option>
+					<option value="">已结课2</option>
+					<option value="">已结课3</option>
+					<option value="">已结课4</option>
+				</select>
+			</div>
+			<div class="parcel_zone">
+				<span class="reset_sp reset_sp_spe">重置</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="dateCompare">dateCompare(timeStart, timeEnd)</span>
+			<span class="des_deco">-</span>
+			<span class="des">时间对比</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：时间字符串一，要求：年月日数字之间不能相连&emsp;合法的时间字符串格式：2016-12-11, 2016/10/10,只要年月日的数字不直接相连即可。&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：时间字符串二，要求：年月日数字之间不能相连&emsp;合法的时间字符串格式：2016-12-11, 2016/10/10,只要年月日的数字不直接相连即可。&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：返回较小的时间</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			时间对比，对比两个时间，返回较小的时间。
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		function dateCompare(timeStart, timeEnd){
+		    var aStart = timeStart.match(/\d+/g);
+		    var aEnd = timeEnd.match(/\d+/g);
+		    var iTimeStart = new Date(aStart[0],aStart[1],aStart[2]).getTime();
+		    var iTimeEnd = new Date(aEnd[0],aEnd[1],aEnd[2]).getTime();
+
+		    if(iTimeStart < iTimeEnd){
+		        return timeStart;
+		    }else if(iTimeStart > iTimeEnd){
+		        return timeEnd;
+		    }
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="getSmallScreenSize">getSmallScreenSize(iTar, iDis, sTop)</span>
+			<span class="des_deco">-</span>
+			<span class="des">layer弹窗hack小屏幕高度</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：要设置的弹窗的高度值，根据UI设计图量出的高度&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：屏幕较小时上下的留白&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数三：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：页面结构头部区域的class名，无需带 . 号&emsp;默认：header_top</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：返回合适的高度值和合适的layer的offset属性对应的值</dd>
+				<dd class="explain">1.height&emsp;合适的layer的area的高度值&emsp;类型：String,如：100px</dd>
+				<dd class="explain">2.offset&emsp;合适的layer的offset属性对应的值&emsp;类型：String，如100px或者auto</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer弹窗hack小屏幕高度，有的时候根据UI设计图量出的高度过大，用这个方法可以hack小屏浏览器的情况
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_zheng.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [getSmallScreenSize layer弹窗hack小屏幕高度]
+		 * @param  {[number]} iTar [要设置的弹窗的高度值]
+		 * @param  {[number]} iDis [屏幕较小时上下的留白]
+		 * @param  {[string]} sTop [骨架头部元素]
+		 * @return {[object]}      [理想的高度值height，弹窗的上边界值offset]
+		 */
+		function getSmallScreenSize (iTar, iDis, sTop) {
+		    var oTop = null;
+		    var sHei = null;
+		    var sOffset = null;
+		    var iWinHei = parent.getViewPortSize().height;
+
+		    // 获取弹窗的理想高度
+		    sTop ? oTop = parent.$("." + sTop) : oTop = parent.$('.header_top') ;
+		    iWinHei > iTar ? sHei = iTar + "px" : sHei = iWinHei - oTop.outerHeight() - iDis*2 + "px" ;
+		    // 获取窗口上边界距离
+		    iWinHei > iTar ? sOffset = "auto" : sOffset = oTop.outerHeight() + iDis + "px";
+
+		    return {height: sHei, offset: sOffset};
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="loadingCreate">loadingCreate(obj, disTop,config)</span>
+			<span class="des_deco">-</span>
+			<span class="des">创建局部loading</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：盛放loading层容器的 id 值无需带 # 号&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：loading层的高度居中配置，如果给定的高度不理想可以自行设定&emsp;默认：70</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数三：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：有2个参数。loading层的配置项，可不传</dd>
+				<dd class="explain">1.loadBox:&emsp;创建的loading层的最外层元素的class，无需带 . 号&emsp;默认：jump_loading_section&emsp;类型：String</dd>
+				<dd class="explain">2.loadImg:&emsp;创建的loading层的动画图片的class，无需带 . 号&emsp;默认：load_img&emsp;类型：String</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			创建局部loading，根据UI设计定制的。给某一个DOM元素加局部loading效果，适合异步加载的loading样式
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		//调用方法
+		$("#loading_define .btn").click(function() {
+		    loadingCreate("loading_box", 0);
+		});
+		</pre>
+		<div class="loading_define" id="loading_define">
+			<div class="box" id="loading_box"></div>
+			<a href="javascript:;" class="btn">创建层</a>
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="loadingDestroy">loadingDestroy(obj,time,config)</span>
+			<span class="des_deco">-</span>
+			<span class="des">销毁局部loading</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：盛放loading层容器的 id 值无需带 # 号&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：Number</dd>
+				<dd>解　释：层销毁的延后时间，这个是防止动画消失的过快而设定的，说起来也是比较蛋疼，嫌网速反应的太快&emsp;默认：500</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数三：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：有1个参数。loading层的配置项，可不传</dd>
+				<dd class="explain">1.loadBox:&emsp;创建的loading层的最外层元素的class，无需带 . 号&emsp;默认：jump_loading_section&emsp;类型：String</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			销毁局部loading，根据UI设计定制的。该方法总是结合 loadingCreate 方法使用，销毁自添加的loading层
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		// ==loadingDestroy
+		$("#loading_define2 .btn.cre").click(function() {
+		    loadingCreate("loading_box2", 0);
+		});
+		$("#loading_define2 .btn.dis").click(function() {
+		    //调用方法
+		    loadingDestroy("loading_box2", 300);
+		});
+		</pre>
+		<div class="loading_define" id="loading_define2">
+			<div class="box" id="loading_box2"></div>
+			<a href="javascript:;" class="btn cre">创建层</a>
+			<a href="javascript:;" class="btn dis">销毁层</a>
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="checkSelect">checkSelect(obj)</span>
+			<span class="des_deco">-</span>
+			<span class="des">模拟多选框--不带input框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：表示发生事件的元素集合的class名，需要加 . 号&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			模拟多选框--不带input框，根据UI高度自定义的checkbox复选框。通过该方法无论是什么样的复选框都可以模拟出来了！<span class="jsapi_color_tip">缺点是：数据需要异步提交</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		  * [checkSelect 模拟多选框--不带input框]
+		  * @param {[string]} obj [表示发生事件的元素集合]
+		 */
+		function checkSelect(obj){
+		    $(obj).click(function() {
+		        if($(this).hasClass('on')){
+	                $(this).removeClass('on');
+		        }else{
+	                $(this).addClass('on');
+		        }
+		    });
+		}
+		</pre>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		// ==调用方法
+		checkSelect(".check_sty.on_inp");
+		</pre>
+		<div class="teacher_sel_day">
+			<!-- 选择周几 -->
+			<div class="week_sel">
+				<div class="folder order_folder day_sel">
+					<div class="check_sty on_inp first on">
+						<p class="con pad_l_24 date_bgc">周一</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15">
+						<p class="con pad_l_24">周二</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15">
+						<p class="con pad_l_24">周三</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15 on">
+						<p class="con pad_l_24">周四</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15">
+						<p class="con pad_l_24">周五</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15">
+						<p class="con pad_l_24">周六</p>
+					</div>
+					<div class="check_sty on_inp mar_l_15">
+						<p class="con pad_l_24">周日</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="radioSelect">radioSelect(obj)</span>
+			<span class="des_deco">-</span>
+			<span class="des">模拟单选框--不带input框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：表示发生事件的元素集合的class名，需要加 . 号&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			模拟单选框--不带input框，根据UI高度自定义的radio单选框。通过该方法无论是什么样的单选框都可以模拟出来了！<span class="jsapi_color_tip">缺点是：数据需要异步提交</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		  * [radioSelect 模拟单选框--不带input框]
+		  * @param {[string]} obj [表示发生事件的元素集合]
+		 */
+		function radioSelect(obj){
+		    $(obj).click(function() {
+		        if($(this).hasClass('on')){
+		            $(this).removeClass('on');
+		        }else{
+		            $(this).addClass('on');
+		            $(this).siblings().removeClass('on');
+		        }
+		    });
+		}
+		</pre>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		// ==调用方法
+		radioSelect(".radio_sty.no_inp");
+		</pre>
+		<div class="school_query no-border mar_top">
+			<span class="school_name has_bg">可排分校</span>
+			<div class="right_folder">
+				<div class="folder folder_t">
+					<div class="radio_sty no_inp on">
+						<p class="con">此处显示第一个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left">
+						<p class="con">此处显示第二个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left">
+						<p class="con">此处显示第三个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left">
+						<p class="con">此处显示第四个分校</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="checkSty">checkSty()</span>
+			<span class="des_deco">-</span>
+			<span class="des">模拟多选框--带input框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参　数：无</dt>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			模拟多选框--带input框，根据UI高度自定义的checkbox复选框。通过该方法无论是什么样的复选框都可以模拟出来了！<span class="jsapi_color_tip">可以同步提交</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_zheng.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [checkSty 模拟多选]
+		 * @return {[null]} [null]
+		 */
+		function checkSty(){
+		    var aCheck = $("[data-role='checkbox']");
+		    var aInput = aCheck.find("input.check_box");
+
+		    aInput.each(function(i) {
+		        if(aInput.eq(i).attr("checked") == "checked"){
+		            aCheck.eq(i).addClass("on");
+		        };
+		    });
+		    aCheck.click(function(){
+		        var aInput = $(this).find('input.check_box');
+
+		        if(aInput.attr("checked") === undefined){
+		            aInput.attr("checked", "checked");
+		            $(this).addClass("on");
+		        }
+		        else if(aInput.attr("checked") === "checked"){
+		            aInput.attr("checked", false);
+		            $(this).removeClass("on");
+		        }
+		    });
+		}
+		</pre>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		// ==调用方法
+		checkSty();
+		</pre>
+		<div class="teacher_sel_day">
+			<!-- 选择周几 -->
+			<div class="week_sel">
+				<div class="folder order_folder day_sel">
+					<div data-role="checkbox" class="check_sty inp on first">
+						<input type="checkbox" name="" id="" class="check_box" checked="checked">
+						<p class="con pad_l_24 date_bgc">周一</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box">
+						<p class="con pad_l_24">周二</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box">
+						<p class="con pad_l_24">周三</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box" checked="checked">
+						<p class="con pad_l_24">周四</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box">
+						<p class="con pad_l_24">周五</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box">
+						<p class="con pad_l_24">周六</p>
+					</div>
+					<div data-role="checkbox" class="check_sty inp mar_l_15">
+						<input type="checkbox" name="" id="" class="check_box">
+						<p class="con pad_l_24">周日</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="radioSty">radioSty(group, call)</span>
+			<span class="des_deco">-</span>
+			<span class="des">模拟单选框--带input框<span class="jsapi_color_tip">目前存在问题，不要调用</span></span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：分组名称，为单个包裹radio的 data-group 属性名 &emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：Function</dd>
+				<dd>解　释：点击时的回调函数&emsp;默认：无</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：无</dt>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			模拟单选框--带input框，根据UI高度自定义的radio单选框。通过该方法无论是什么样的单选框都可以模拟出来了！<span class="jsapi_color_tip">数据可以同步提交</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_zheng.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [radioSty 模拟单选]
+		 * @param  {[string]} group [分组名称]
+		 * @return {[null]}       [null]
+		 */
+		function radioSty(group, call){
+		    var aRadio = $("[data-role='radio'][data-group='"+ group +"']");
+		    var aInput = aRadio.find("input.radio");
+
+		    aInput.each(function(i) {
+		        if(aInput.eq(i).attr("checked") == "checked"){
+		            aRadio.eq(i).addClass("on");
+		        };
+		    });
+		    aRadio.click(function(){
+		        aRadio.removeClass("on");
+		        $(this).addClass("on");
+		        aRadio.find('input.radio').attr("checked", "");
+		        $(this).find('input.radio').attr("checked", "checked");
+		        call && call($(this));
+		    });
+		}
+		</pre>
+		<h1 class="fun_tit">示例：</h1>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		// ==调用方法
+		radioSelect(".radio_sty.no_inp");
+		</pre>
+		<div class="school_query no-border mar_top">
+			<span class="school_name has_bg">可排分校</span>
+			<div class="right_folder">
+				<div class="folder folder_t">
+					<div class="radio_sty no_inp" data-role="radio" data-group="group1">
+						<input type="radio" name="" class="radio" id="" />
+						<p class="con">此处显示第一个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left" data-role="radio" data-group="group1">
+						<input type="radio" name="" class="radio" id="" />
+						<p class="con">此处显示第二个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left" data-role="radio" data-group="group1">
+						<input type="radio" name="" class="radio" id="" />
+						<p class="con">此处显示第三个分校</p>
+					</div>
+					<div class="radio_sty no_inp con_left" data-role="radio" data-group="group1">
+						<input type="radio" name="" class="radio" id="" />
+						<p class="con">此处显示第四个分校</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<!-- 单条属性方法-方法无参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="getExplorer">getExplorer()</span>
+			<span class="des_deco">-</span>
+			<span class="des">获取浏览器的具体类型</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参　数：无</dt>
+			</dl>
+			<dl class="fun_options">
+				<dt>返回值：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：</dd>
+				<dd class="explain">firefox&emsp;火狐浏览器对应的返回值</dd>
+				<dd class="explain">chrome&emsp;谷歌浏览器及谷歌内核对应的返回值</dd>
+				<dd class="explain">opera&emsp;欧朋浏览器对应的返回值</dd>
+				<dd class="explain">safari&emsp;safari浏览器对应的返回值</dd>
+				<dd class="explain">ie&emsp;ie浏览器对应的返回值</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			获取浏览器的具体类型，比如ie浏览器，谷歌浏览器等等
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		function getExplorer() {
+		    var explorer = window.navigator.userAgent;
+		    //firefox 
+		    if (explorer.indexOf("Firefox") >= 0) {
+		        return "firefox";
+		    }
+		    //Chrome
+		    else if(explorer.indexOf("Chrome") >= 0){
+		        return "chrome";
+		    }
+		    //Opera
+		    else if(explorer.indexOf("Opera") >= 0){
+		        return "opera";
+		    }
+		    //Safari
+		    else if(explorer.indexOf("Safari") >= 0){
+		        return "safari";
+		    }
+		    // ie
+		    else{
+		        return "ie";
+		    }
+
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="printReceipt">printReceipt(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">打印收据功能</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有4个属性</dd>
+				<dd class="explain">1.path:&emsp;css样式文件的路径&emsp;默认：无&emsp;类型：String</dd>
+				<dd class="explain">2.vers:&emsp;css样式文件的版本（防止缓存）&emsp;默认：无&emsp;类型：String</dd>
+				<dd class="explain">3.ie:&emsp;ie浏览器对应的css&emsp;默认：无&emsp;类型：String</dd>
+				<dd class="explain">4.other:&emsp;除了ie浏览器外，其它浏览器对应的css&emsp;默认：无&emsp;类型：String</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			打印收据功能，hack浏览器打得过大或者过小的样式问题。依赖打印插件
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		  * [printReceipt 打印收据]
+		  * @param  {[object]} oName [参数 path:路径 vers:版本号 ie:ie对应的css other:其它对应的css]
+		  * @return {[null]}       [null]
+		  */
+		function printReceipt(oName){
+		    var sExp = getExplorer();
+		    var oHeader = $("head");
+		    var sLink = '';
+		    oName.path ? oName.path = oName.path : oName.path = "";
+		    oName.vers ? oName.vers = oName.vers : oName.vers = "";
+		    if(sExp == "ie"){
+                sLink = '<link rel="stylesheet" type="text/css" href="'+ oName.path +'css/' + oName.ie + '.css'+ oName.vers + '" media="print">';
+		    }else{
+                sLink = '<link rel="stylesheet" type="text/css" href="'+ oName.path +'css/' + oName.other + '.css'+ oName.vers + '" media="print">';
+		    }
+		    oHeader.append($(sLink));
+		}
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="showBigImg">showBigImg(obj, oImg)</span>
+			<span class="des_deco">-</span>
+			<span class="des">滑过小图预览大图<span class="jsapi_color_tip">方法有待改进</span></span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：触发事件的小图类名，需要带 . 号</dd>
+			</dl>
+			<dl class="fun_options">
+				<dt>参数二：</dt>
+				<dd>类　型：String</dd>
+				<dd>解　释：小图对应的大图，需要带 . 号 或者 # 号</dd>
+				<dd class="explain">需要页面上面有所传的元素对应的 html 标签代码。图片要显示的宽度和高度在相应的 img 图片上面体现</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			滑过小图预览大图，根据鼠标的具体位置定位
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>位　置：</span>
+			<span class="jsapi_color_tip">src/js/page/page_frame_gao.js</span>和<span class="jsapi_color_tip">src/js/page/page_page_zheng.js</span>
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		/**
+		 * [showBigImg 图片预览大图]
+		 * @param  {[string]} obj  [小图]
+		 * @param  {[string]} oImg [大图]
+		 * @return {[type]}      [description]
+		 */
+		function showBigImg(obj, oImg){
+		    $(obj).hover(function(ev){
+		        var oEv = ev || event;
+		        var iX = oEv.pageX;
+		        var iY = oEv.pageY;
+		        var sSrc = $(this).attr("src");
+
+		        $(oImg).attr("src", sSrc);
+		        $(oImg).css({
+		            "left": iX,
+		            "top": iY
+		        }).stop(true, true).fadeIn(100);
+		    },function(){
+		        $(oImg).stop(true, true).fadeOut(100);
+		    })
+		}
+		</pre>
+	</div>
+</div>

@@ -1,0 +1,368 @@
+<!-- 属性方法介绍部分 -->
+<!-- 基础属性-标题 -->
+<h1 class="opt_fun_tit">基础属性</h1>
+<span class="jsapi_color_tip">注意：这里只列举一些基础的公用的属性，详细的属性请移步<a href="http://layer.layui.com/" class="friend_link" target="_blank">layer官网</a>。后面方法特有的属性会在内置方法里面做详细解释</span>
+<!-- 内容 -->
+<div class="opt_fun_box">
+	<!-- 单条属性方法 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="title">title</span>
+			<span class="des_deco">-</span>
+			<span class="des">弹窗的标题</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<span class="tit">类型：</span>String
+			
+			<span class="defalut">默认：</span>弹窗标题
+			，
+			<span class="jsapi_color_tip">这个默认值是自己设定的，用的时候依据实际需求填写吧！</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说明：</span>
+			弹窗的标题
+		</div>
+	</div>
+
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="content">content</span>
+			<span class="des_deco">-</span>
+			<span class="des">弹窗内容</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<span class="tit">类型：</span>String/DOM
+			
+			<span class="defalut">默认：</span>主体内容
+			，
+			<span class="jsapi_color_tip">这个默认值是自己设定的，用的时候依据实际需求填写吧！</span>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说明：</span>
+			弹窗内容，强调一下DOM，这里是实现弹窗自定义的关键。通过定义一个html模板，然后将它的内容传递过来。
+		</div>
+	</div>
+
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="skin">skin</span>
+			<span class="des_deco">-</span>
+			<span class="des">皮肤/样式类名</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<span class="tit">类型：</span>String
+			
+			<span class="defalut">默认：</span>layer-ext-jwb/layer-ext-jwb_ask
+			，
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说明：</span>
+			这个是根据layer自定义样式接口文档自行定义的，一般不用变动。（除了不用预先设定好的样式情况外，要是真出现这种情况还是别用该组件了，赶紧去用layer.open()方法自行coding去吧，天啊撸！）
+		</div>
+	</div>
+
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="area">area</span>
+			<span class="des_deco">-</span>
+			<span class="des">宽度和高度</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<span class="tit">类型：</span>Array
+			
+			<span class="defalut">默认：</span>["525px", "400px"]/["386px", "252px"]
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说明：</span>
+			弹窗的宽度和高度（包括标题部分），<span class="jsapi_color_tip">左边是宽度值右边是高度值</span>，这个属性的默认值也是根据项目自行设定的但是不是一成不变的，如果调用内置方法<span class="jsapi_color_tip">layerPc.page()/layerPc.frame()</span>则需要根据UI给的设计稿自行传值，后续会做解释。高度超出的部分会出滚动条！
+		</div>
+	</div>
+
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="btn">btn</span>
+			<span class="des_deco">-</span>
+			<span class="des">底部操作按钮</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<span class="tit">类型：</span>Array
+			
+			<span class="defalut">默认：</span>["确定"]/["确定", "取消"]
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说明：</span>
+			底部操作按钮，根据设计图给的进行传值
+		</div>
+	</div>
+
+</div>
+<!-- 内置方法-标题 -->
+<h1 class="opt_fun_tit">内置方法</h1>
+<span class="jsapi_color_tip">注意：由于产品用户体验的需求，组件只需在骨架内引入即可,所以要是想在iframe页面里面调用组件的方法前面需要加parent</span>
+<h1 class="fun_tit">在骨架里调用组件方法</h1>
+<!-- 代码修饰 -->
+<pre class="layui-code">
+//在骨架内调用initTab方法--我现在就是个练习的靶子，后面会详细介绍我的，嘻嘻嘻！
+layerPc.alert();
+</pre>
+<h1 class="fun_tit">在iframe里调用组件方法</h1>
+<!-- 代码修饰 -->
+<pre class="layui-code">
+//在骨架内调用initTab方法--我现在就是个练习的靶子，后面会详细介绍我的，嘻嘻嘻！
+parent.layerPc.alert();
+</pre>
+<div class="opt_fun_box">
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.page">layerPc.page(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">页面层</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有N个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin 使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：页面层的标题&emsp;类型：String</dd>
+				<dd class="explain">3.content:&emsp;弹窗的内容&emsp;默认：页面层的内容&emsp;类型：String/DOM</dd>
+				<dd class="explain">4.area:&emsp;弹窗的宽度和高度，第一个值是宽度，第二个值是高度。&emsp;默认：["525px", "400px"]&emsp;类型：Array</dd>
+				<dd class="explain">5.N+:&emsp;layer最底层的基础属性（除了上面出现的）&emsp;</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			这个是最为简单但是是最为底层的方法了，为什么这么说呢，因为这个方法可以接受N多个参数，不像其它方法那样有具体的固定值。可以自行根据UI和需求自行发挥，可以说是变化多端的<span class="jsapi_color_tip">可高度自定义</span>的方法了！
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.page({
+		   title: '标题',
+		   content: '我是光光的但是非常底层的可高度自定义的page层,'
+		});
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.alert">layerPc.alert(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">一个按钮的提示框--通知框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有6个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin/area 使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：弹窗标题&emsp;类型：String</dd>
+				<dd class="explain">3.content:&emsp;弹窗的内容&emsp;默认：主体内容&emsp;类型：String/DOM</dd>
+				<dd class="explain">4.btn:&emsp;弹窗的底部操作按钮，数组传递一个值即可&emsp;默认：["确定"]&emsp;类型：Array</dd>
+				<dd class="explain">5.call:&emsp;弹窗的底部操作按钮的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer_pc 组件一个按钮的提示框--通知框
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.alert({
+		   title: '标题',
+		   content: '内容',
+		   btn: ['知道了'],
+		   call: function(){
+		      alert('底部操作按钮的回调函数');
+		   }
+		});
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.confirm">layerPc.confirm(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">两个按钮的提示框--询问框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有8个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin/area 使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：弹窗标题&emsp;类型：String</dd>
+				<dd class="explain">3.content:&emsp;弹窗的内容&emsp;默认：主体内容&emsp;类型：String/DOM</dd>
+				<dd class="explain">4.btn:&emsp;弹窗的底部操作按钮，数组传递两个值即可。<span class="jsapi_color_tip">会根据数组传递的顺序从左到右去生成按钮</span>&emsp;默认：["确定", "取消"]&emsp;类型：Array</dd>
+				<dd class="explain">5.call:&emsp;弹窗的底部操作<span class="jsapi_color_tip">左边</span>按钮的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+				<dd class="explain">6.callSec:&emsp;弹窗的底部操作<span class="jsapi_color_tip">右边</span>按钮的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+				<dd class="explain">7.isShut:&emsp;<span class="jsapi_color_tip">点击左边按钮</span>控制弹窗是否关闭（根据具体情况进行传值，如果默认点击关闭的话则无需传值）&emsp;默认：false&emsp;类型：Bollean</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer_pc 组件两个按钮的提示框--询问框，用户可以根据自己的意愿去选择性的点击。
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.confirm({
+		   title: '标题',
+		   content: '内容',
+		   btn: ['同意', '不同意'],
+		   call: function(){
+		      alert('同意');
+		   },
+		   callSec: function(){
+		      alert('不同意');
+		   },
+		   isShut: true
+		});
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.ask">layerPc.ask(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">两个按钮的提示框--询问框</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有6个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin/area 使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：提示&emsp;类型：String</dd>
+				<dd class="explain">3.tip_ask_con:&emsp;弹窗的内容的提示语&emsp;默认：确定要删除吗？&emsp;类型：String</dd>
+				<dd class="explain">4.btn:&emsp;弹窗的底部操作按钮，数组传递两个值即可。<span class="jsapi_color_tip">会根据数组传递的顺序从左到右去生成按钮</span>&emsp;默认：["确定", "取消"]&emsp;类型：Array</dd>
+				<dd class="explain">5.call:&emsp;弹窗的底部操作<span class="jsapi_color_tip">左边</span>按钮的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer_pc 组件两个按钮的提示框--询问框，用户可以根据自己的意愿去选择性的点击。该方法跟<span class="jsapi_color_tip">layerPc.confirm</span>有点类似，但是这个方法是有固定格式的。格式是：带有内容为文本的字符串
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.ask({
+		   title: '标题',
+		   tip_ask_con: '内容提示语',
+		   btn: ['同意', '不同意'],
+		   call: function(){
+		      alert('同意');
+		   }
+		});
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.success">layerPc.success(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">操作回馈层/信息提示层</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有7个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin/area 使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：提示&emsp;类型：String</dd>
+				<dd class="explain">3.tip_ok_con:&emsp;弹窗的内容的提示语&emsp;默认：操作成功&emsp;类型：String</dd>
+				<dd class="explain">4.tip_type:&emsp;提示的类型 0:成功 1:警告 2:失败&emsp;默认：0&emsp;类型：Number</dd>
+				<dd class="explain">5.call:&emsp;层销毁后的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+				<dd class="explain">6.time:&emsp;层自动销毁的时间&emsp;默认：2000&emsp;类型：Number</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer_pc 组件操作回馈层/信息提示层，有三种状态提供
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.success({
+		   title: '标题',
+		   tip_ok_con: '失败',
+		   tip_type: 2,
+		   time: 3000,
+		   call: function(){
+		      alert('信息提示即将消失了');
+		   }
+		});
+		</pre>
+	</div>
+
+	<!-- 单条属性方法-方法有参数 -->
+	<div class="opt_fun_single">
+		<!-- 基础部分 -->
+		<div class="basic">
+			<span class="name" id="layerPc.frame">layerPc.frame(params)</span>
+			<span class="des_deco">-</span>
+			<span class="des">弹窗包含iframe层</span>
+		</div>
+		<!-- 属性方法描述 -->
+		<div class="type">
+			<dl class="fun_options">
+				<dt>参数一：</dt>
+				<dd>类　型：Object</dd>
+				<dd>解　释：该参数有7个属性</dd>
+				<dd class="explain">1.不变的属性（不需要传值）:&emsp;skin使用自带的默认值即可</dd>
+				<dd class="explain">2.title:&emsp;弹窗的标题&emsp;默认：页面层的标题&emsp;类型：String</dd>
+				<dd class="explain">3.area:&emsp;弹窗的宽度和高度，第一个值是宽度，第二个值是高度。&emsp;默认：["525px", "400px"]&emsp;类型：Array</dd>
+				<dd class="explain">4.url:&emsp;iframe的url&emsp;默认：无&emsp;类型：String</dd>
+				<dd class="explain">5.frame_yes_btn:<span class="jsapi_color_tip">底部左边按钮</span>&emsp;左边按钮的id值&emsp;默认：#frame_btn_yes&emsp;类型：String <span class="jsapi_color_tip">这个按钮务必在页面里面体现以下，即便没有用到也要存在该Dom元素。只怪当初太年轻，封装的太次了！！！</span></dd>
+				<dd class="explain">6.frame_no_btn:<span class="jsapi_color_tip">底部右边按钮</span>&emsp;右边按钮的id值&emsp;默认：#frame_btn_no&emsp;类型：String <span class="jsapi_color_tip">这个按钮务必在页面里面体现以下，即便没有用到也要存在该Dom元素。只怪当初太年轻，封装的太次了！！！</span></dd>
+				<dd class="explain">7.call:&emsp;点击<span class="jsapi_color_tip">左边按钮</span>的回调函数&emsp;默认：无&emsp;类型：Function</dd>
+			</dl>
+		</div>
+		<!-- 描述部分 -->
+		<div class="description">
+			<span>说　明：</span>
+			layer_pc 组件弹窗包含iframe层，使得iframe可以加载指定的url页面
+		</div>
+		<!-- 代码修饰 -->
+		<pre class="layui-code">
+		layerPc.frame({
+		   title: '标题',
+		   url: 'http://www.baonahao.com',
+		   
+		});
+		</pre>
+	</div>
+
+</div>

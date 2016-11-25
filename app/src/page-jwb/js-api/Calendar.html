@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 资源引入-meta -->
+	@@include('../../组件--资源引入--meta.html')
+	<title>Calendar</title>
+	<!-- 资源引入-css -->
+	@@include('../../组件--资源引入--css.html')
+	<link href="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+	<!-- layerui -->
+	<link rel="stylesheet" href="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/css/layui.css" />
+	<!-- 资源引入-js -->
+	@@include('../../组件--资源引入--js.html')
+	<!-- jsapi部分 -->
+	<script type="text/javascript" src="/js/js-api.js"></script>
+	<!-- 自定义滚动条 -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/jquery.mCustomScrollbar/jquery.mCustomScrollbar.js" type="text/javascript"></script>
+	<!-- layerui -->
+	<script src="http://cdn.baonahao.com.cn/common/js/plugin/layui-v1.0.0/layui.js"></script>
+	<!-- functions -->
+	<link href="http://cdn.baonahao.com.cn/jwb/css/style.css" rel="stylesheet" />
+	<script src="http://cdn.baonahao.com.cn/jwb/js/page/page-frame.min.js" type="text/javascript"></script>
+	<script src="http://cdn.baonahao.com.cn/jwb/js/page/page.min.js" type="text/javascript"></script>
+</head>
+<body>
+	@@include('组件--头部--jsapi.html')
+
+	<!-- 主体内容 -->
+	<div class="wrapper_jsapi">
+		<!-- nav-jsapi -->
+		@@include('Calendar--组件--导航--jsapi.html')
+		<!-- 主体内容包裹层 -->
+		<div class="wrapper_jsapi_folder">
+			<div class="opt_fun_wrapper">
+				<!-- 标题 -->
+				<div class="intro_tit">教务宝 Calendar 组件详解</div>
+				<!-- 介绍文本 -->
+				<div class="intro_txt">
+					<p>教务宝 Calendar 组件是通过原生js实现的日历。基于客户端的时间日期实现的。<span class="jsapi_color_tip">该组件的局限性：</span>只能生成对应的42天且自动补齐的情况。</p>
+				</div>
+				<!-- 位置 -->
+				<div class="description" style="margin-bottom:5px;">
+					<span>位　置：</span>
+					<span class="jsapi_color_tip">src/js/page/page_page_gao.js</span>
+				</div>
+				<!-- 图片 -->
+				<img src="/img/intro_img_jwb_Calendar.jpg" alt="" class="intro_img" />
+
+				@@include('Calendar--组件--属性方法--jsapi.html')
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		jQuery(function () {
+			
+			// jsapi 头部小导航选中
+			JsApi.header(4);
+
+			// jsapi 导航
+			JsApi.nav();
+
+			// 代码修饰器
+			// 方法说明骨架内部调用实例
+			layui.use('code', function(){ //加载code模块
+			 	layui.code({
+			 		about: false,
+			 		encode: true
+			 	}); //引用code方法
+			});
+			
+			// Calendar示例
+			// ==生成日历
+			var calendar = new Calendar({
+				todayClass: "cur_day",
+				weekEnd: "week_end",
+				yearBox: "year",
+				monthBox: "month",
+				calendarBox: "calendar_box",
+				prevBtn: "prev_btn",
+				nextBtn: "next_btn",
+				call: function(){
+					alert("你点击了上月或者下月按钮");
+				}
+			});
+			// ==回到今天
+			$("#go_today").click(function() {
+				calendar.init();
+			});
+
+
+
+		});  //readyEnd
+
+	</script>
+</body>
+</html>

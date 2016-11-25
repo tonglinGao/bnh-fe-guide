@@ -1,0 +1,65 @@
+// =========
+// ***组件--jsapi导航
+// =========
+
+// =========
+// 导航部分
+// =========
+
+.nav_jsapi{
+    width: @nav-jsapi-width;
+    background: @nav-jsapi-bgc-col;
+    .fl();
+    // 导航包裹层
+    .nav_flolder{
+    	padding: 10px 0 0 0;
+    	.nav_box{
+    		padding: 0 0 10px 0;
+    	}
+    	// 标题
+    	h1{
+			font-size: 16px;
+			cursor: pointer;
+			padding: 0 0 0 20px;
+			margin: 0 0 5px 0;
+			&:hover{
+				color: @header-jsapi-bgc-fu-col;
+			}
+			.mark{
+				font-size: 18px;
+				.fr();
+				margin: 0 20px 0 0;
+			}
+    	}
+    	// 列表元素
+    	ul{
+    		// display: none;
+    		a{
+    			display: block;
+    			line-height: 23px;
+    			padding: 0 0 0 20px;
+    			&:hover,&.on{
+    				color: #fff;
+    				background-color: @header-jsapi-bgc-fu-col;
+    			}
+    		}
+    	}
+    }
+}
+
+// =========
+// 滚动条部分
+// =========
+
+.nav_jsapi.mCustomScrollbar{
+	.mCustomScrollBox{
+		.mCSB_scrollTools{
+			right: -6px;
+			.mCSB_dragger{
+				.mCSB_dragger_bar{
+					background-color: @header-jsapi-bgc-fu-col;
+				}
+			}
+		}
+	}
+}

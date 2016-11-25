@@ -1,0 +1,95 @@
+// =========
+// ***组件--jsapi 属性方法元素
+// =========
+
+// =========
+// 介绍部分
+// =========
+
+.opt_fun_wrapper{
+    // 介绍部分
+    .intro_tit{
+        font-size: 20px;
+        text-align: center;
+        margin: 0 0 15px 0;
+    }
+    .intro_txt {
+        line-height: 20px;
+        margin: 0 0 10px 0;
+        p{
+            text-indent: 28px;
+        }
+    }
+    .intro_img{
+        width: 100%;
+    }
+    // 介绍部分--各属性方法
+    // ==标题
+    .opt_fun_tit{
+        font-size: 18px;
+        color: #000;
+        .bor-b(@col:#ccc);
+        padding: 0 0 5px 0;
+        margin: 20px 0 5px 0;
+    }
+    // ==方法说明标题
+    .fun_tit{
+        font-size: 16px;
+        margin: 5px 0 0 0;
+    }
+    // ==内容
+    .opt_fun_box{
+        // 单条属性方法介绍
+        .opt_fun_single{
+            margin: 0 0 5px 0;
+            &:hover{
+                .basic{
+                    .name{
+                        color: @jsapi-col-tip;
+                    }
+                }
+            }
+            // 基础部分
+            .basic{
+                .name{
+                    font-size: 18px;
+                    color: @jsapi-col-name;
+                    display: inline-block;
+                    padding: 5px 0;
+                }
+            }
+            // 属性方法描述
+            .type{
+                padding: 2px 0 5px 0;
+                .tit{
+                    margin: 0 5px 0 0;
+                }
+                .defalut{
+                    margin: 0 0 0 10px;
+                }
+            }
+            // 描述部分
+            .description{
+
+            }
+            // 方法参数部分
+            .fun_options{
+                dt{
+                    margin: 3px 0 5px 0;
+                }
+                dd{
+                    padding-left: 28px;
+                }
+                // 参数说明部分
+                dd.explain{
+                    margin-bottom: 3px;
+                    padding-left: 56px;
+                }
+            }
+        }
+    }
+    // 提示语颜色
+    .jsapi_color_tip{
+        color: @jsapi-col-tip;
+    }
+}

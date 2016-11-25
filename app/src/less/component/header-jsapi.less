@@ -1,0 +1,42 @@
+// =========
+// ***组件--头部
+// =========
+
+.header_jsapi{
+	height: @header-height;
+	background: @header-jsapi-bgc-col;
+	.header_l,.header_r{
+		height: 100%;
+	}
+	// 左部分
+	.header_l{
+		width: @nav-jsapi-width;
+		// background: red;
+		.fl();
+		.logo{
+			color: #fff;
+		}
+	}
+	// 右部分
+	.header_r{
+		margin: 0 0 0 @nav-jsapi-width;
+		// 导航主体
+		ul{
+			overflow: hidden;
+			li{
+				.fl();
+			}
+			a{
+				font-size: 16px;
+				color: #fff;
+				line-height: @header-height;
+				display: inline-block;
+				padding: 0 15px;
+				// 当前选中状态
+				&:hover,&.on{
+					background: @header-jsapi-bgc-fu-col;
+				}
+			}
+		}
+	}
+}

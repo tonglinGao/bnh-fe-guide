@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 资源引入-meta -->
+	@@include('组件--资源引入--meta.html')
+	<title>首页</title>
+	<!-- 资源引入-css -->
+	@@include('组件--资源引入--css.html')
+	<!-- 资源引入-js -->
+	@@include('组件--资源引入--js.html')
+</head>
+<body>
+	<div class="container">
+		<!-- 描述性部分 -->
+		<img src="/img/index-logo.png" class="index_logo" />
+		<h1 class="tit_question align_c">欢迎来到报哪好前端引导静态站，本站旨在解决以下问题</h1>
+		<dl class="con_question">
+			<dd>一、可以帮你了解前端组做项目的流程</dd>
+			<dd>二、可以帮你了解前端组做项目的必须工具及具体操作步骤</dd>
+			<dd>三、提供各项目封装类及项目重要可重复性函数的文档</dd>
+		</dl>
+
+		<!-- 项目流程部分 -->
+		<!-- 标题 -->
+		<h1 class="project_title align_c flow">项目流程部分</h1>
+		<a href="/work-flow.html" class="project_work_flow" title="点我试试看吧"><img src="/img/index_icon_flow.png" /></a>
+
+		<!-- 项目流程工具部分 -->
+		<!-- 标题 -->
+		<h1 class="project_title align_c tool">项目工具部分</h1>
+		<a href="/work-tool.html" class="project_work_flow" title="点我试试看吧"><img src="/img/index_icon_tool.png" /></a>
+
+		<!-- 项目文档部分 -->
+		<!-- 标题 -->
+		<h1 class="project_title align_c document">项目文档部分</h1>
+		<div class="project_document">
+			<!-- 教务宝 -->
+			<span href="javascript:;" class="project_single jwb">
+				<span class="txt">教务宝</span>
+				<!-- 各个页面的入口 -->
+				<span class="entry_ways">
+					<!-- <a href="javascript:;">项目简介</a> -->
+					<a href="/page-jwb/js-api/tab-ctrl.html">JS-API</a>
+				</span>
+			</span>
+			<!-- 招生秀 -->
+			<span href="javascript:;" class="project_single zsx_platform">
+				<span class="txt">招生秀--平台展示</span>
+				<!-- 各个页面的入口 -->
+				<span class="entry_ways">
+					<!-- <a href="javascript:;">项目简介</a> -->
+					<a href="javascript:;">JS-API</a>
+				</span>
+			</span>
+		</div>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+// =========
+// ***公共部分
+// =========
+
+// =========
+// 重置部分
+// =========
+body{
+	min-width: 0;
+}
+
+
+// =========
+// jsapi 部分
+// =========
+
+// 主体部分
+.wrapper_jsapi{
+	overflow: hidden;
+}
+// 主体内容包裹层
+.wrapper_jsapi_folder{
+	// min-height: 10000px;
+	padding: 25px 15px 35px 20px;
+	margin: 0 0 0 @nav-jsapi-width;
+}
+
+// =========
+// 友情链接文本颜色
+// =========
+.friend_link{
+	color: @friend-link-col;
+	&:hover{
+		color: @friend-link-col;
+		text-decoration: underline;
+	}
+}
+
+// =========
+// layer 组件在线调试器
+// =========
+.layer_test_box{
+	width: 290px;
+	height: 235px;
+	overflow: hidden;
+	background: #e0e0e0;
+	.bor-rad(@rad:3px;);
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	// 头部区域
+	.layer_test_tit{
+		margin: 0 0 10px 0;
+		p{
+			color: #1E9FFF;
+		}
+		a{
+			font-size: 12px;
+			color: #fff;
+			background: #1E9FFF;
+			.fr();
+			.bor-rad(@rad:3px;);
+			padding: 3px 10px;
+		}
+	}
+	// 代码区域
+	.layer_test_area{
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		background: #3F3F3F;
+		resize: none;
+		overflow-y: auto;
+		border: none;
+		padding: 0 5px;
+	}
+	// 执行按钮
+	.go_test{
+		height: 30px;
+		color: #fff;
+		font-size: 12px;
+		line-height: 30px;
+		background: #1E9FFF;
+		.bor-rad(@rad:3px;);
+		padding: 0 10px;
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+	}
+}
+
+// =========
+// 教务宝--loadingCreate函数 示例
+// =========
+.loading_define{
+	overflow: hidden;
+	.box{
+		width: 300px;
+		height: 180px;
+		.fl();
+		background: pink;
+		.border();
+	}
+	.btn{
+		width: 100px;
+		height: 30px;
+		color: #fff;
+		background: #1E9FFF;
+		text-align: center;
+		line-height: 30px;
+		margin: 150px 0 0 20px;
+		.fl();
+		// 销毁按钮
+		&.dis{
+			background: @jsapi-col-tip;
+		}
+	}
+}
+
+// =========
+// 公用的对齐--示例代码
+// =========
+
+.align_c{
+	text-align: center;
+	&.title{
+		content: red;
+	}
+}
+
+.container{
+	width: @main-width;
+	margin: 0 auto;
+}
+
+// =========
+// 媒体监听部分
+// =========
+@media screen and(min-width:320px) and (max-width:1200px){
+	.container{
+		width: 100%;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		box-sizing: border-box;
+		padding: 0 10px;
+	}
+	.project_document .project_single{
+		margin-bottom: 15px !important;
+	}
+}
